@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:googleauth/utility/utility.dart';
 import 'package:googleauth/utility/appStrings.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -95,29 +97,38 @@ class _GoogleAuthScreenState extends State<GoogleAuthScreen> {
     );
   }
 
-  __googleSignIn() {
+  __googleSignIn() async {
     try {
-      _googleSignIn.signIn().then((onValue1) async {
-        await pref.setString(AppStrings.NAME_PREFERENCE, onValue1.displayName);
-        await pref.setString(AppStrings.EMAIL_PREFERENCE, onValue1.email);
-        await pref.setString(
-            AppStrings.PHOTO_URL_PREFERENCE, onValue1.photoUrl);
-        getPref();
-        onValue1.authentication.then((onValue2) {
-          // for token
+      if (await Utility.checkInternet()) {
+        _googleSignIn.signIn().then((onValue1) async {
+          await pref.setString(
+              AppStrings.NAME_PREFERENCE, onValue1.displayName);
+          await pref.setString(AppStrings.EMAIL_PREFERENCE, onValue1.email);
+          await pref.setString(
+              AppStrings.PHOTO_URL_PREFERENCE, onValue1.photoUrl);
+          getPref();
+          onValue1.authentication.then((onValue2) {
+            // for token
+          });
         });
-      });
+      } else {
+        Fluttertoast.showToast(msg: "No internet connection");
+      }
     } catch (error) {
       print(error);
     }
   }
 
-  _googleSignOut() {
+  _googleSignOut() async {
     try {
-      _googleSignIn.signOut().then((value) async {
-        await pref.clear();
-        getPref();
-      });
+      if (await Utility.checkInternet()) {
+        _googleSignIn.signOut().then((value) async {
+          await pref.clear();
+          getPref();
+        });
+      } else {
+        Fluttertoast.showToast(msg: "No internet connection");
+      }
     } catch (e) {}
   }
 }
