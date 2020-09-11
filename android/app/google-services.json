@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "155638154488",
+    "firebase_url": "https://flutter--auth-demo.firebaseio.com",
+    "project_id": "flutter--auth-demo",
+    "storage_bucket": "flutter--auth-demo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:155638154488:android:6c9bd05e3de089b230e70d",
+        "android_client_info": {
+          "package_name": "com.ankit.googleauth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "155638154488-l67pn8547qrs06064d5beau6glpt5t7u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyF4zChmqlAQRUrVpixaOv9c5gTQzblTE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "155638154488-l67pn8547qrs06064d5beau6glpt5t7u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

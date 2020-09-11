@@ -1,16 +1,78 @@
-# googleauth
+# Flutter Firebase Phone Authentication Demo
 
-A new Flutter project.
+This demo will show us how to authenticate a user by using google.
 
-## Getting Started
+## Setup
 
-This project is a starting point for a Flutter application.
+Use latest versions of below mentioned plugins in `pubspec.yaml`.
 
-A few resources to get you started if this is your first Flutter project:
+| Plugin | Pub | Explanation |
+|--------|-----|-------------|
+| [connectivity](https://github.com/flutter/plugins/tree/master/packages/connectivity/connectivity) | [![pub package](https://img.shields.io/pub/v/connectivity.svg)](https://pub.dev/packages/connectivity) | Used to check internet connectivity. 
+| [google_sign_in](https://github.com/FirebaseExtended/flutterfire/tree/master/packages/google_sign_in/google_sign_in) | [![pub package](https://img.shields.io/pub/v/google_sign_in.svg)](https://pub.dev/packages/google_sign_in) | Used to authenticate phone.
+| [shared_preferences](https://github.com/PonnamKarthik/shared_preferences) | [![pub package](https://img.shields.io/pub/v/shared_preferences.svg)](https://pub.dev/packages/shared_preferences) | Used to store data locally in key-value pairs.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+And then
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+    flutter pub get
+
+Visit [Firebase Console](https://console.firebase.google.com/u/0/?pli=1) to add new project. Add `Android` and `iOS` app to that project. Add `google-services.json` and `GoogleService-Info.plist` for `Android` and `iOS` respetively to its predefined place in flutter project.
+
+Now enable `Google` Sign-in method (second tab) in Authentication. 
+
+You can also get this steps in Firebase docs for [Android](https://firebase.google.com/docs/auth/android/phone-auth) and [iOS](https://firebase.google.com/docs/auth/ios/phone-auth).
+
+#### For Android
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+Please mention `internet` permission in `AndroidManifest.xml`. This will not affect in `debug` mode but in `release` mode it will give `socket exception`.
+
+Add SHA-1 in firebase app 
+
+    1. Open app in Android Studio
+    2. Open Gradle panel
+    3. Goto andoid -> app -> Tasks -> android
+    4. Double click on signingReport, it will generate SHA-1
+
+Add below line in android/build.gradle
+
+    buildscript {
+        // ...
+        dependencies {
+            // ...
+            classpath 'com.google.gms:google-services:4.3.2'
+        }
+    }
+
+Add below line in app/build.gradle
+
+    apply plugin: 'com.android.application'
+
+    android {
+        // ...
+    }
+
+    dependencies {
+        // ...
+    }
+
+    // ADD THIS AT THE BOTTOM
+    apply plugin: 'com.google.gms.google-services'
+
+#### For iOS
+
+### Sign-in
+
+    GoogleSignIn().signIn();
+
+### Sign-out
+
+    GoogleSignIn().signOut();
+
+Finally
+
+    flutter run
+
+##### Please refer to my [blogs](https://ankitsolanki.netlify.app/blog.html) for more information.
+
