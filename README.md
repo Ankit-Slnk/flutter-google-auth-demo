@@ -63,6 +63,8 @@ Add below line in app/build.gradle
 
 #### For iOS
 
+Follow the steps in [google_sign_in](https://pub.dev/packages/google_sign_in) library
+
 ### Check Internet Connectivity
 
     static Future<bool> checkInternet() async {

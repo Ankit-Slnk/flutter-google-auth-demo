@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:googleauth/utility/appAssets.dart';
+import 'package:googleauth/utility/appColors.dart';
 import 'package:googleauth/utility/utility.dart';
 import 'package:googleauth/utility/appStrings.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -38,49 +40,61 @@ class _GoogleAuthScreenState extends State<GoogleAuthScreen> {
         child: Column(
           children: <Widget>[
             Expanded(
-              child: email == null && name == null && photoUrl == null
-                  ? Container()
-                  : Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(50),
-                          child: Image.network(
-                            photoUrl,
-                            height: 90,
-                            width: 90,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 8,
-                        ),
-                        Text(
-                          name,
-                          style: TextStyle(
-                            fontSize: 22,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 8,
-                        ),
-                        Text(
-                          email,
-                          style: TextStyle(
-                            fontSize: 20,
-                          ),
-                        )
-                      ],
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Container(
+                    height: 100,
+                    width: 100,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(50),
+                      child: Utility.imageLoader(
+                        photoUrl == null ? "" : photoUrl,
+                        AppAssets.placeHolder,
+                      ),
                     ),
+                  ),
+                  SizedBox(
+                    height: 16,
+                  ),
+                  Text(
+                    name == null ? "Guest User" : name,
+                    style: TextStyle(
+                      fontSize: 22,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 8,
+                  ),
+                  Text(
+                    email == null ? "" : email,
+                    style: TextStyle(
+                      fontSize: 18,
+                    ),
+                  )
+                ],
+              ),
             ),
             Container(
               padding: EdgeInsets.all(16),
               alignment: Alignment.center,
               child: RaisedButton(
-                child: Text(
-                  email == null && name == null && photoUrl == null
-                      ? "Login"
-                      : "Logout",
+                color: AppColors.appColor,
+                child: Container(
+                  margin: EdgeInsets.symmetric(
+                    horizontal: 8,
+                    vertical: 16,
+                  ),
+                  child: Text(
+                    email == null && name == null && photoUrl == null
+                        ? "Login"
+                        : "Logout",
+                    style: TextStyle(
+                      fontSize: 22,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
                 onPressed: () {
                   if (email == null && name == null && photoUrl == null) {
