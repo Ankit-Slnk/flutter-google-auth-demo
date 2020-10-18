@@ -1,4 +1,4 @@
-# Flutter Firebase Phone Authentication Demo
+# Flutter User Authentication using Google Demo
 
 This demo will show us how to authenticate a user by using google.
 
