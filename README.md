@@ -21,7 +21,7 @@ Visit [Firebase Console](https://console.firebase.google.com/u/0/?pli=1) to add 
 
 Now enable `Google` Sign-in method (second tab) in Authentication. 
 
-You can also get this steps in Firebase docs for [Android](https://firebase.google.com/docs/auth/android/phone-auth) and [iOS](https://firebase.google.com/docs/auth/ios/phone-auth).
+You can also get this steps in Firebase docs for [Android](https://firebase.google.com/docs/auth/android/google-signin) and [iOS](https://firebase.google.com/docs/auth/ios/google-signin).
 
 #### For Android
 
