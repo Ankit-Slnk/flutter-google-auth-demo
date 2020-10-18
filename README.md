@@ -9,7 +9,7 @@ Use latest versions of below mentioned plugins in `pubspec.yaml`.
 | Plugin | Pub | Explanation |
 |--------|-----|-------------|
 | [connectivity](https://github.com/flutter/plugins/tree/master/packages/connectivity/connectivity) | [![pub package](https://img.shields.io/pub/v/connectivity.svg)](https://pub.dev/packages/connectivity) | Used to check internet connectivity. 
-| [google_sign_in](https://github.com/FirebaseExtended/flutterfire/tree/master/packages/google_sign_in/google_sign_in) | [![pub package](https://img.shields.io/pub/v/google_sign_in.svg)](https://pub.dev/packages/google_sign_in) | Used to authenticate phone.
+| [google_sign_in](https://github.com/flutter/plugins) | [![pub package](https://img.shields.io/pub/v/google_sign_in.svg)](https://pub.dev/packages/google_sign_in) | Used to authenticate user using google.
 | [shared_preferences](https://github.com/PonnamKarthik/shared_preferences) | [![pub package](https://img.shields.io/pub/v/shared_preferences.svg)](https://pub.dev/packages/shared_preferences) | Used to store data locally in key-value pairs.
 | [fluttertoast](https://github.com/PonnamKarthik/FlutterToast) | [![pub package](https://img.shields.io/pub/v/fluttertoast.svg)](https://pub.dev/packages/fluttertoast) | Used to show toast.
 
