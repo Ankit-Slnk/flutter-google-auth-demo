@@ -109,6 +109,8 @@ Whitelist the origin of your project's client ID at [Google Console](https://con
 
 7357 is port number
 
+Make sure you disable all ad blocker.
+
 ### Check Internet Connectivity
 
     static Future<bool> checkInternet() async {
