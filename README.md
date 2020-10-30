@@ -67,6 +67,48 @@ Add below line in app/build.gradle
 
 Follow the steps in [google_sign_in](https://pub.dev/packages/google_sign_in) library
 
+#### For Web
+
+Add Firebase core JS SDK
+
+    <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
+
+Add Firebase Auth and Analytics JS for google sign-in
+
+    <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-analytics.js"></script>
+
+Initialize Firebase with configuration
+
+    <script>
+    var firebaseConfig = {
+      // ... your web apps configuration. This is available in your Firebase project settings.
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    </script>
+
+Add your web apps client id
+
+    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+
+Replace `YOUR_CLIENT_ID` with client id you get from [Firebase console](https://console.firebase.google.com) 
+
+    Select Project -> Authentication -> Sign-in method -> Google -> Web SDK configuration -> Web client ID
+
+Whitelist the origin of your project's client ID at [Google Console](https://console.developers.google.com/)
+
+    Credentials -> OAuth 2.0 Client IDs
+    Click on Web Client
+
+    Add http://localhost:7357 in URIs in Authorized JavaScript origin
+
+    Add http://localhost:7357/auth/google/callback in URIs in Authorized redirect URIs
+
+7357 is port number
+
 ### Check Internet Connectivity
 
     static Future<bool> checkInternet() async {
@@ -86,9 +128,14 @@ Follow the steps in [google_sign_in](https://pub.dev/packages/google_sign_in) li
 
     GoogleSignIn().signOut();
 
-Finally
+Finally for android and ios
 
     flutter run
 
+for web
+
+    flutter run -d chrome --web-hostname localhost --web-port 7357
+
 ##### Please refer to my [blogs](https://ankitsolanki.netlify.app/blog.html) for more information.
 
+Checkout [this demo](https://flutter-web-google-auth.netlify.app/#/) in [Flutter Web](https://flutter.dev/docs/get-started/web).
