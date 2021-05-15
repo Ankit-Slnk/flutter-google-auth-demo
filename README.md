@@ -1,5 +1,7 @@
 # Flutter User Authentication using Google Demo
 
+![Flutter User Authentication using Google Demo](flutter_google_auth.png)
+
 This demo will show us how to authenticate a user by using google.
 
 ![Flutter User Authentication using Google Demo](flutter_google_auth.gif)
